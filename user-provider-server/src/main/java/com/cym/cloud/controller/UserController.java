@@ -22,8 +22,12 @@ public class UserController {
     @RequestMapping(value = "/selectList")
     public List<User> selectList(){
         logger.info("进入服务提供者1");
-       List<User> userList= userServie.selectList();
+        try {
+            Thread.sleep(900);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        List<User> userList= userServie.selectList();
         return userList;
     }
-
 }

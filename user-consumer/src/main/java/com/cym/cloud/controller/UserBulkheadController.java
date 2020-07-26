@@ -12,32 +12,31 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * @Auther: 陈远明
- * @Date: 2020/7/24 20 : 34
- * @Description:
+ * @Date: 2020/7/26 21 : 36
+ * @Description: 舱壁模式
  */
 @RestController
-@RequestMapping("/user")
-public class UserController {
-/*    @Autowired
-    private RestTemplate restTemplate;
-
-
-    @RequestMapping(value = "/selectList", method = RequestMethod.GET)
-    public List selectList(User user) {
-        return restTemplate.getForObject("http://USER-PROVIDER-SERVER/user/selectList", List.class);
-    }*/
+@RequestMapping("/userBulkhead")
+public class UserBulkheadController {
 
 
     @Autowired
     private UserServiceClient userServiceClient;
 
-    @HystrixCommand(
-            commandProperties = {
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")
-            }, fallbackMethod = "selectListFallback")
+   /* @HystrixCommand(
+            threadPoolKey = "selectList",
+            threadPoolProperties = {
+                    @HystrixProperty(name ="coreSize",value = "1"),
+                    @HystrixProperty(name ="maxQueueSize",value = "-1")
+            }, fallbackMethod = "selectListFallback")*/
+   @HystrixCommand(
+           commandKey="selectList",
+           commandProperties= {
+                   @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE"),
+                   @HystrixProperty(name="execution.isolation.semaphore.maxConcurrentRequests", value="1")
+           }, fallbackMethod = "selectListFallback")
     @RequestMapping(value = "/selectList", method = RequestMethod.GET)
     public List selectList(User user) {
         return userServiceClient.selectList(user);
@@ -50,4 +49,3 @@ public class UserController {
     }
 
 }
-
