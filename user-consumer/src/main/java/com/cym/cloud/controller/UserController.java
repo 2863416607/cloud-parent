@@ -1,5 +1,6 @@
 package com.cym.cloud.controller;
 
+import com.cym.cloud.api.UserServiceClient;
 import com.cym.cloud.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +19,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
-    @Autowired
+    /*  @Autowired      ribbon的调用方式
     private RestTemplate restTemplate;
 
     @RequestMapping(value = "/selectList", method = RequestMethod.GET)
-    public List add(User user) {
+    public List selectList(User user) {
         return restTemplate.getForObject("http://USER-PROVIDER-SERVER/user/selectList", List.class);
     }
+*/
 
+    @Autowired
+    private UserServiceClient userServiceClient;
+
+    @RequestMapping(value = "/selectList", method = RequestMethod.GET)
+    public List selectList(User user) {
+        return userServiceClient.selectList(user);
+    }
 }
