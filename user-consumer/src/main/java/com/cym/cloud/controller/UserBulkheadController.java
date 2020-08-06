@@ -25,13 +25,17 @@ public class UserBulkheadController {
     @Autowired
     private UserServiceClient userServiceClient;
 
-   /* @HystrixCommand(
+   /*
+   线程池方式
+    @HystrixCommand(
             threadPoolKey = "selectList",
             threadPoolProperties = {
                     @HystrixProperty(name ="coreSize",value = "1"),
                     @HystrixProperty(name ="maxQueueSize",value = "-1")
             }, fallbackMethod = "selectListFallback")*/
-   @HystrixCommand(
+
+ // 信号量方式
+  @HystrixCommand(
            commandKey="selectList",
            commandProperties= {
                    @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE"),
@@ -42,10 +46,10 @@ public class UserBulkheadController {
         return userServiceClient.selectList(user);
     }
 
-    public List<User> selectListFallback(User user){
+  /*  public List<User> selectListFallback(User user){
         List<User> objects = new ArrayList<>();
         objects.add(new User(1,"1","1","1",1));
         return objects;
-    }
+    }*/
 
 }

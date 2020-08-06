@@ -34,20 +34,20 @@ public class UserController {
     @Autowired
     private UserServiceClient userServiceClient;
 
-    @HystrixCommand(
+  /*  @HystrixCommand(
             commandProperties = {
                     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")
-            }, fallbackMethod = "selectListFallback")
+            }, fallbackMethod = "selectListFallback")*/
     @RequestMapping(value = "/selectList", method = RequestMethod.GET)
     public List selectList(User user) {
         return userServiceClient.selectList(user);
     }
 
-    public List<User> selectListFallback(User user){
+/*    public List<User> selectListFallback(User user){
         List<User> objects = new ArrayList<>();
         objects.add(new User(1,"1","1","1",1));
         return objects;
-    }
+    }*/
 
 }
 

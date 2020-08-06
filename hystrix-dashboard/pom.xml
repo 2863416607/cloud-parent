@@ -3,16 +3,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cym.cloud</groupId>
+    <artifactId>hystrix-dashboard</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <parent>
         <artifactId>cloud-parent</artifactId>
         <groupId>com.cym.cloud</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.cym.cloud</groupId>
-    <artifactId>user2-provider-server</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <name>user2-provider-server</name>
+    <name>hystrix-dashboard</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -23,23 +23,16 @@
     </properties>
 
     <dependencies>
+
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-hystrix</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.cym.cloud</groupId>
-            <artifactId>cloud-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-javanica</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,21 +40,14 @@
         </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>

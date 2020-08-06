@@ -12,7 +12,7 @@ import java.util.List;
  * @Date: 2020/7/26 12 : 01
  * @Description:
  */
-@FeignClient(value = "USER-PROVIDER-SERVER")
+@FeignClient(value = "USER-PROVIDER-SERVER",fallbackFactory = UserServiceFallbackFactory.class)
 public interface UserServiceClient {
 
     @RequestMapping(value = "/user/selectList", method = RequestMethod.GET)

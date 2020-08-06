@@ -21,6 +21,7 @@
         <module>user-consumer</module>
         <module>user-provider-server</module>
         <module>user2-provider-server</module>
+        <module>hystrix-dashboard</module>
     </modules>
 
     <name>cloud-parent</name>

@@ -11,3 +11,25 @@ eureka:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://node1:7001/eureka/,http://node2:7002/eureka/,http://node3:7003/eureka/
+
+feign.hystrix.enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        enabled: true
+        sleepWindowInMilliseconds: 50000
+        errorThresholdPercentage: 10
+        requestVolumeThreshold: 10
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+

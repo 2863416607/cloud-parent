@@ -20,14 +20,9 @@ public class UserController {
     private UserServie userServie;
 
     @RequestMapping(value = "/selectList")
-    public List<User> selectList(){
+    public List<User> selectList() {
         logger.info("进入服务提供者1");
-        try {
-            Thread.sleep(900);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        List<User> userList= userServie.selectList();
+        List<User> userList = userServie.selectList();
         return userList;
     }
 }
