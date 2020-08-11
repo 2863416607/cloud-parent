@@ -1,0 +1,31 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/2863416607/cloud-config
+          username: 2863416607@qq.com
+          password: chenyuanming...
+  rabbitmq:
+    host: 47.93.99.166
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://node1:7001/eureka/,http://node2:7002/eureka/,http://node3:7003/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
