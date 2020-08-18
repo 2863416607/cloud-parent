@@ -23,6 +23,7 @@
         <module>user2-provider-server</module>
         <module>hystrix-dashboard</module>
         <module>cloud-config-server</module>
+        <module>api-gateway</module>
     </modules>
 
     <name>cloud-parent</name>

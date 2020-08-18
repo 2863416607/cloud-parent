@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 
 @EnableEurekaClient
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 @EnableHystrix
 @MapperScan("com.cym.cloud.mapper")
 public class UserProviderServerApplication {

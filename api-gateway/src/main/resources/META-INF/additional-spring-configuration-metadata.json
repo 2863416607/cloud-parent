@@ -1,0 +1,16 @@
+{
+  "properties": [
+    {
+      "name": "ribbon.ReadTimeout",
+      "type": "java.lang.String",
+      "defaultValue": "5000",
+      "description": "Description for ribbon.ReadTimeout."
+    },
+    {
+      "name": "ribbon.ConnectTimeout",
+      "type": "java.lang.String",
+      "defaultValue": "1000",
+      "description": "Description for ribbon.ReadTimeout."
+    }
+  ]
+}

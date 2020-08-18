@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 5555
+
+zuul:
+  # 取消重试机制
+  retryable: false
+  # host-header
+  add-host-header: true
+  routes:
+    mycloud:
+      #自定义地址
+      path: /mycloud/**
+      #路由服务
+      serviceId: ribbon-consumer
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://node1:7001/eureka/,http://node2:7002/eureka/,http://node3:7003/eureka/
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 1000
