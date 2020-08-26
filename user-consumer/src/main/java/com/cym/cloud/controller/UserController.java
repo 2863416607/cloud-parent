@@ -2,14 +2,11 @@ package com.cym.cloud.controller;
 
 import com.cym.cloud.api.UserServiceClient;
 import com.cym.cloud.pojo.User;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,6 +30,8 @@ public class UserController {
 
     @Autowired
     private UserServiceClient userServiceClient;
+
+
 
   /*  @HystrixCommand(
             commandProperties = {

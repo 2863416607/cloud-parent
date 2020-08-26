@@ -43,8 +43,8 @@ public class TokenFilter extends ZuulFilter {
         String token = request.getParameter("token");
         if (StringUtils.isBlank(token)){
             //请求不通过
-            requestContext.setSendZuulResponse(false);
-            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+//            requestContext.setSendZuulResponse(false);
+//            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }
         return null;
     }

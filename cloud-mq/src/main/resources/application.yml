@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: cloud-mq
+  rabbitmq:
+    host: 47.93.99.166
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 10005
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://node1:7001/eureka/,http://node2:7002/eureka/,http://node3:7003/eureka/

@@ -24,6 +24,7 @@
         <module>hystrix-dashboard</module>
         <module>cloud-config-server</module>
         <module>api-gateway</module>
+        <module>cloud-mq</module>
     </modules>
 
     <name>cloud-parent</name>
